@@ -3,7 +3,7 @@ package simpleserver;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import com.google.gson.*;
 
 class SimpleServer {
 
@@ -12,6 +12,7 @@ class SimpleServer {
     Socket dong = null;
     String resource = null;
     try {
+
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
       while (true) {
