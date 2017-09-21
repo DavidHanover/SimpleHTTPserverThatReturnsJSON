@@ -7,7 +7,7 @@ import com.google.gson.*;
 
 class SimpleServer {
 
-  public static void main(String[] args) throws IOException {
+  public static void throws IOException {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
@@ -72,3 +72,4 @@ class SimpleServer {
     }
   }
 }
+
