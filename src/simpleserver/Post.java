@@ -27,8 +27,8 @@ public class Post {
   }
 
   //public static void putPost(Post a){
-    //postidDict.put
+  //postidDict.put
 
- // }
+  // }
 
 }

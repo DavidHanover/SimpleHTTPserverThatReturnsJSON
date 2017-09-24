@@ -4,12 +4,7 @@ import com.google.gson.GsonBuilder;
 
 public class main {
 
-  main(String[] args) {
-    GsonBuilder()
-    Run(data.json);
-
-
+  public static void main(String[] args) {
+    SimpleServer server = SimpleServer.Run();
   }
-
-
 }

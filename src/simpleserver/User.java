@@ -10,14 +10,14 @@ public class User {
   private final String username;
   private final int userid;
 
-  public User(String username, int userid){
+  public User(String username, int userid) {
     this.username = username;
     this.userid = userid;
 
     useridDict.put(userid, this);
   }
 
-  public static User getUser(int userid){
+  public static User getUser(int userid) {
     return useridDict.get(userid);
   }
 }

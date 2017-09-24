@@ -10,7 +10,7 @@ class SimpleServer {
 
   private static SimpleServer single;
 
-  private static SimpleServer throws IOException {
+  private SimpleServer() throws IOException {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
@@ -63,7 +63,6 @@ class SimpleServer {
         writer.println("Content-type: text/html");
         writer.println("");
 
-
         // Body of our response
         writer.println("<h1>Some cool response!</h1>");
 
@@ -75,12 +74,16 @@ class SimpleServer {
     }
   }
 
-public static SimpleServer getServer(){
-    if(single == null){
-      single = new SimpleServer();
+  public static SimpleServer Run() {
+    try {
+      if (single == null) {
+        single = new SimpleServer();
+      }
+    } catch (IOException e) {
+      System.out.println("Failed to start server.");
     }
     return single;
-}
+  }
 
 
 }
