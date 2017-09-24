@@ -4,19 +4,27 @@ import java.util.Map;
 
 public class Comment {
 
-  private final static Map<Integer, User> useridDict = new HashMap<>();
+  private static int cNum = 0;
 
-  private final String username;
-  private final int userid;
+  private final static Map<Integer, Comment> commentDict = new HashMap<>();
 
-  public Comment(String username, int userid){
-    this.username = username;
-    this.userid = userid;
+  private final String data;
+  private final int postID;
+  private final int userID;
 
-    useridDict.put(userid, this);
+  public Comment(String c, int uid, int pid){
+    this.data = c;
+    this.postID = pid;
+    this.userID = uid;
+
+    commentDict.put(cNum, this);
+    cNum++;
   }
 
-  public static User getUser(int userid){
-    return useridDict.get(userid);
+  public static String getComment(int index){
+    return commentDict.get(index).data;
   }
+
+  pub
+
 }
