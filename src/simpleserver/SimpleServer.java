@@ -3,15 +3,19 @@ package simpleserver;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import com.google.gson.*;
 
 class SimpleServer {
 
-  public static void main(String[] args) throws IOException {
+
+  private static SimpleServer single;
+
+  private SimpleServer() throws IOException {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
     try {
+
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
       while (true) {
@@ -59,7 +63,6 @@ class SimpleServer {
         writer.println("Content-type: text/html");
         writer.println("");
 
-
         // Body of our response
         writer.println("<h1>Some cool response!</h1>");
 
@@ -70,4 +73,18 @@ class SimpleServer {
       System.exit(1);
     }
   }
+
+  public static SimpleServer Run() {
+    try {
+      if (single == null) {
+        single = new SimpleServer();
+      }
+    } catch (IOException e) {
+      System.out.println("Failed to start server.");
+    }
+    return single;
+  }
+
+
 }
+
