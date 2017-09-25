@@ -1,0 +1,14 @@
+create add functions for user post and comment classes
+--er, maybe not?  these objects are added to hash maps by default
+when constructed. so figure out wtf happens when GSON parses json file
+
+
+figure out how to parse URLs
+
+
+figure out what to do with JSON files.
+when returning, how to display?
+when reading, how to store objects?
+for loops? to iterate through hashmaps?
+
+are post IDs contiguous?
