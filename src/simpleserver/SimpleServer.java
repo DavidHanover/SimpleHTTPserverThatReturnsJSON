@@ -1,17 +1,27 @@
 package simpleserver;
 
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import java.text.SimpleDateFormat;
 
 class SimpleServer {
 
-  public static void main(String[] args) throws IOException {
+
+  private static SimpleServer single;
+
+  private SimpleServer() throws IOException {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
+    String earl = null;
     try {
+
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
       while (true) {
@@ -30,6 +40,7 @@ class SimpleServer {
 
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
+          earl = line;
           System.out.println("----------REQUEST START---------");
           System.out.println(line);
           // read only headers
@@ -59,9 +70,12 @@ class SimpleServer {
         writer.println("Content-type: text/html");
         writer.println("");
 
-
         // Body of our response
-        writer.println("<h1>Some cool response!</h1>");
+        String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm.ss").format(new java.util.Date());
+        writer.println("status: OK");
+        writer.println( "timestamp: " + timeStamp);
+        writer.println(ResponseBuilder.getBody(earl));
+
 
         dong.close();
       }
@@ -70,4 +84,17 @@ class SimpleServer {
       System.exit(1);
     }
   }
+
+  public static void Run() {
+    try {
+      if (single == null) {
+        single = new SimpleServer();
+      }
+    } catch (IOException e) {
+      System.out.println("Failed to start server.");
+    }
+  }
+
+
 }
+
