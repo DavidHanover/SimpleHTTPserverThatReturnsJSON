@@ -3,12 +3,12 @@ package simpleserver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Post {
+class Post {
 
   private final static Map<Integer, Post> postidDict = new HashMap<>();
 
-  private final int postId;
-  private final int userId;
+  private final int postid;
+  private final int userid;
   private final String data;
 
   // Constructor; takes input data in form of
@@ -16,18 +16,22 @@ public class Post {
 
   public Post(String c, int uid, int pid) {
     this.data = c;
-    this.postId = pid;
-    this.userId = uid;
+    this.postid = pid;
+    this.userid = uid;
 
-    postidDict.put(postId, this);
+    postidDict.put(postid, this);
   }
 
-  public static String getPost(int postId) {
-    return postidDict.get(postId).data;
+  public String getData() {
+    return data;
   }
 
-  public String getData(){return data;}
-  public int getUserId(){return userId;}
-  public int getPostId(){return postId;}
+  public int getUserId() {
+    return userid;
+  }
+
+  public int getPostId() {
+    return postid;
+  }
 
 }

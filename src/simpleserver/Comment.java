@@ -3,31 +3,35 @@ package simpleserver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Comment {
+class Comment {
 
   private static int cNum = 0;
 
   private final static Map<Integer, Comment> commentDict = new HashMap<>();
 
   private final String data;
-  private final int postID;
-  private final int userID;
+  private final int postid;
+  private final int userid;
 
   public Comment(String c, int uid, int pid) {
     this.data = c;
-    this.postID = pid;
-    this.userID = uid;
+    this.postid = pid;
+    this.userid = uid;
 
     commentDict.put(cNum, this);
     cNum++;
   }
 
-  public static String getComment(int index) {
-    return commentDict.get(index).data;
+  public String getData() {
+    return data;
   }
 
-  public String getData(){return data;}
-  public int getPostID() {return postID;}
-  public int getUserID() {return userID;}
+  public int getPostID() {
+    return postid;
+  }
+
+  public int getUserID() {
+    return userid;
+  }
 
 }

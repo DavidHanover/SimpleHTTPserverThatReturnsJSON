@@ -72,6 +72,7 @@ class SimpleServer {
         // Body of our response
         writer.println(ResponseBuilder.getBody(earl));
 
+
         dong.close();
       }
     } catch (IOException e) {
@@ -80,7 +81,7 @@ class SimpleServer {
     }
   }
 
-  public static SimpleServer Run() {
+  public static void Run() {
     try {
       if (single == null) {
         single = new SimpleServer();
@@ -88,7 +89,6 @@ class SimpleServer {
     } catch (IOException e) {
       System.out.println("Failed to start server.");
     }
-    return single;
   }
 
 

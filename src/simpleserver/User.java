@@ -18,10 +18,11 @@ public class User {
     useridDict.put(userid, this);
   }
 
-  public static User getUser(int userid) {
-    return useridDict.get(userid);
+  public String getUsername() {
+    return username;
   }
 
-  public String getUsername(){return username;}
-  public int getUserid(){return userid;}
+  public int getUserid() {
+    return userid;
+  }
 }
