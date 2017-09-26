@@ -18,6 +18,7 @@ public class main {
       JsonObject obj = jsonParser.parse(br).getAsJsonObject();
 
       User[] users = gson.fromJson(obj.get("users"), User[].class);
+      for(int i = 0 ; i < users.length ; i++ ){ users[i] = new User(users[i].getUsername(), users[i].getUserid());}
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -32,6 +33,7 @@ public class main {
       JsonObject obj = jsonParser.parse(br).getAsJsonObject();
 
       Post[] posts = gson.fromJson(obj.get("posts"), Post[].class);
+      for(int i = 0 ; i < posts.length ; i++ ){ posts[i] = new Post(posts[i].getData(), posts[i].getUserId(), posts[i].getPostId());}
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -46,6 +48,7 @@ public class main {
       JsonObject obj = jsonParser.parse(br).getAsJsonObject();
 
       Comment[] comments = gson.fromJson(obj.get("comments"), Comment[].class);
+      for(int i = 0 ; i < comments.length ; i++ ){ comments[i] = new Comment(comments[i].getData(), comments[i].getUserID(), comments[i].getPostID());}
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -63,6 +66,6 @@ getComments();
 
 
 
-    SimpleServer server = SimpleServer.Run();
+    SimpleServer.Run();
   }
 }

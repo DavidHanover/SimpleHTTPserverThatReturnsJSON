@@ -26,9 +26,8 @@ public class Post {
     return postidDict.get(postId).data;
   }
 
-  //public static void putPost(Post a){
-  //postidDict.put
-
-  // }
+  public String getData(){return data;}
+  public int getUserId(){return userId;}
+  public int getPostId(){return postId;}
 
 }

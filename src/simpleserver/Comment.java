@@ -26,4 +26,8 @@ public class Comment {
     return commentDict.get(index).data;
   }
 
+  public String getData(){return data;}
+  public int getPostID() {return postID;}
+  public int getUserID() {return userID;}
+
 }

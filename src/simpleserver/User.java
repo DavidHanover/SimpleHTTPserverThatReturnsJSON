@@ -20,4 +20,7 @@ public class User {
   public static User getUser(int userid) {
     return useridDict.get(userid);
   }
+
+  public String getUsername(){return username;}
+  public int getUserid(){return userid;}
 }
