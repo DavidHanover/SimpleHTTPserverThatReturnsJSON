@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 
 class SimpleServer {
 
@@ -70,6 +71,9 @@ class SimpleServer {
         writer.println("");
 
         // Body of our response
+        String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm.ss").format(new java.util.Date());
+        writer.println("status: OK");
+        writer.println( "timestamp: " + timeStamp);
         writer.println(ResponseBuilder.getBody(earl));
 
 

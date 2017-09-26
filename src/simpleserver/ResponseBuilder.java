@@ -119,6 +119,7 @@ class ResponseBuilder {
           postsbyUID.add(allPs[i]);
         }
       }
+      System.out.println("entries: " + postsbyUID.size());
       response = gson.toJson(postsbyUID);
       return response;
 
@@ -134,6 +135,7 @@ class ResponseBuilder {
           commentsbyPID.add(allCs[i]);
         }
       }
+      System.out.println("entries: " + commentsbyPID.size());
       response = gson.toJson(commentsbyPID);
       return response;
 
