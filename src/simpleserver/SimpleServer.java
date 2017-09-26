@@ -73,7 +73,7 @@ class SimpleServer {
         writer.println("<h1>Some cool response!</h1>");
         writer.println("hell yeah!!");
         writer.println(User.getUser(1));
-        writer.println(earl);
+        writer.println(ResponseBuilder.EarlParser(earl));
 
         dong.close();
       }
