@@ -1,9 +1,13 @@
 package simpleserver;
 
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import com.google.gson.*;
 
 class SimpleServer {
 
@@ -14,6 +18,7 @@ class SimpleServer {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
+    String earl = null;
     try {
 
       ding = new ServerSocket(1299);
@@ -35,6 +40,7 @@ class SimpleServer {
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
           System.out.println("----------REQUEST START---------");
+          earl = line;
           System.out.println(line);
           // read only headers
           line = in.readLine();
@@ -65,6 +71,8 @@ class SimpleServer {
 
         // Body of our response
         writer.println("<h1>Some cool response!</h1>");
+        writer.println("hell yeah!!");
+        writer.println(earl);
 
         dong.close();
       }
