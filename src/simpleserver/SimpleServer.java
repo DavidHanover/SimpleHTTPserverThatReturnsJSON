@@ -39,8 +39,8 @@ class SimpleServer {
 
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
-          System.out.println("----------REQUEST START---------");
           earl = line;
+          System.out.println("----------REQUEST START---------");
           System.out.println(line);
           // read only headers
           line = in.readLine();
@@ -70,10 +70,7 @@ class SimpleServer {
         writer.println("");
 
         // Body of our response
-        writer.println("<h1>Some cool response!</h1>");
-        writer.println("hell yeah!!");
-        writer.println(User.getUser(1));
-        writer.println(ResponseBuilder.EarlParser(earl));
+        writer.println(ResponseBuilder.getBody(earl));
 
         dong.close();
       }
